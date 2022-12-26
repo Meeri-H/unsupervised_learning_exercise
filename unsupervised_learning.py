@@ -34,7 +34,6 @@ plt.scatter(data_pca[:, 0], data_pca[:, 1])
 plt.title('PCA')
 plt.show()
 
-
 ### Agglomerative hierarchical clustering ###
 
 # Create agglomerative clustering model with linkage='complete'
@@ -65,7 +64,6 @@ model_single = AgglomerativeClustering(n_clusters=4, linkage='single')
 model_single.fit(scaled_data)
 
 print("Silhouette score for single linkage:",silhouette_score(scaled_data, model_single.labels_))
-
 
 # Create a dendrogram using the linkage() function with the method='average' keyword argument.
 average_link=linkage(scaled_data, method='average')
@@ -98,7 +96,6 @@ kmeans.fit(scaled_data)
 print("Silhouette score for k-means clustering with 8 clusters:",silhouette_score(scaled_data, kmeans.labels_))
 
 # The best silhouette score was aqcuired with 8 clusters.
-
 
 ### Comparing clusters with the true labels ###
 
@@ -148,7 +145,6 @@ ax[1].set_ylabel('Principal component 2', fontsize=12)
 ax[1].set_title('PCA with the predicted class labels', fontsize = 15)
 ax[1].legend(targets)
 
-
 # Check the adjusted Rand score
 print("Adjusted Rand score:", adjusted_rand_score(pca_dataframe['class'], model_single.labels_))
 
@@ -194,7 +190,6 @@ ax1[1].legend(targets)
 print("Adjusted Rand score:", adjusted_rand_score(pca_dataframe['class'], kmeans.labels_))
 
 # The adjusted Rand score is higher with the k-means clustered data, so according to the adjusted Rand score the k-means clustering performed better.
-
 
 ### Clustering unlabeled data ###
 
